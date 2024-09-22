@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "g64iK9YBBGJvGsKBQW3MXfbVpYlKLEPp7yRKNKjiP/M=",
+  "Source": "Reddit",
+  "BasePath": "_content/Reddit",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
