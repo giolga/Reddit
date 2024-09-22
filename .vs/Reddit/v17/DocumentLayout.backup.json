@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\GioLGA\\Desktop\\Reddit\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\giolga\\desktop\\reddit\\reddit\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\giolga\\desktop\\reddit\\reddit\\model\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\model\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +27,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Model\\Post.cs",
+              "RelativeDocumentMoniker": "Reddit\\Model\\Post.cs",
+              "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Model\\Post.cs",
+              "RelativeToolTip": "Reddit\\Model\\Post.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T17:13:22.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Model\\Comment.cs",
+              "RelativeDocumentMoniker": "Reddit\\Model\\Comment.cs",
+              "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Model\\Comment.cs",
+              "RelativeToolTip": "Reddit\\Model\\Comment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T17:12:58.547Z",
+              "EditorCaption": ""
             }
           ]
         },
