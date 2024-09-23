@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Text.Json.Serialization;
+using System.Xml.Linq;
 
 namespace Reddit.Model
 {
@@ -11,6 +12,7 @@ namespace Reddit.Model
         public string CommunityName { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        [JsonIgnore]
         public List<Comment> Comments { get; set; } = new List<Comment>();
     }
 }
