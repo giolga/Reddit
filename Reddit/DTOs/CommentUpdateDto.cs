@@ -1,9 +1,6 @@
-﻿using Microsoft.Extensions.Hosting;
-using System.Text.Json.Serialization;
-
-namespace Reddit.Model
+﻿namespace Reddit.DTOs
 {
-    public class Comment
+    public class CommentUpdateDto
     {
         public int Id { get; set; }
         public string AuthorName { get; set; }
@@ -11,7 +8,5 @@ namespace Reddit.Model
         public int Upvote { get; set; }
         public int Downvote { get; set; }
         public int PostId { get; set; }
-        [JsonIgnore]
-        public Post Post { get; set; }
     }
 }
