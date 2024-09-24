@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    width: 50rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#post-form {
+    display: flex;
+    width: 500px;
+    margin: 20px;
+    flex-direction: column;
+}
+
+#post-form input,
+#post-form textarea {
+    font-size: 16px;
+    margin-bottom: 10px; /* Adds spacing between inputs */
+    padding: 10px; /* Adds inner padding for the input fields */
+    border: 1px solid #ccc; /* Optional, just to make the inputs more visible */
+    border-radius: 5px; /* Optional, for rounded corners */
+}
+
+#post-form textarea {
+    max-width: 480px;
+}
+
+#post-form button {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    background-color: #0060ba;
+}
+
+#post-form button:hover {
+    background-color: #226fd3;
+}
