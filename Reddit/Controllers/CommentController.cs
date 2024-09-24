@@ -109,7 +109,7 @@ namespace Reddit.Controllers
             return Ok("Updated Successfully!");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<Comment>> DeleteComment(int id)
         {
             var comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);

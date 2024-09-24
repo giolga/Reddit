@@ -26,8 +26,59 @@ const postsList = document.getElementById('posts-list');
                     <p>${post.content}</p>
                     <p>Author: ${post.authorName}</p>
                     <p>Community: ${post.communityName}</p>
-                    <button onclick="editPost(${post.id})">Edit</button>
-                    <button onclick="deletePost(${post.id})">Delete</button>
+                    <button onclick="editPost(${post.id})" class="edit">Edit</button>
+                    <button onclick="deletePost(${post.id})" class="delete">Delete</button>
+
+                    <style>
+                        .post {
+                            display: block;
+                            width: 30rem;
+                            padding: 10px;
+                            margin-left: 5px;
+                            margin-bottom: 10px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            background-color: #f9f9f9;
+                        }
+                        .post h3 {
+                            margin-bottom: 8px;
+                        }
+                        .post p {
+                            margin: 5px 0;
+                        }
+                        .post button {
+                            margin-right: 5px;
+                            padding: 5px 10px;
+                        }
+                        .edit {
+                            width: 4rem;
+                            border-radius: 15px;
+                            cursor: pointer;
+                            background-color: #04AA6D;
+                            color: white;
+                            font-size: 16px;
+                            text-align: center;
+                            border: 1px solid transparent;
+                        }
+                        .edit:hover {
+                            background-color: #04915e;
+                            font-weight: 700;
+                        }
+                        .delete {
+                            width: 5rem;
+                            border: 1px solid transparent;
+                            border-radius: 15px;
+                            cursor: not-allowed;
+                            color: white;
+                            font-size: 16px;
+                            text-align: center;
+                            background-color: #f44336;
+                        }
+                        .delete:hover {
+                            background-color: #e33124;
+                            font-weight: 700;
+                        }
+                    </style>
                 `;
             postsList.appendChild(postElement);
         });
@@ -72,23 +123,30 @@ const postsList = document.getElementById('posts-list');
             document.getElementById('content').value = post.content;
             document.getElementById('author-name').value = post.authorName;
             document.getElementById('community-name').value = post.communityName;
-        } catch (error) {
+        }
+        catch (error) {
             console.error('Error:', error);
         }
     }
 
     // Delete post
     async function deletePost(id) {
-        if (confirm('Are you sure you want to delete this post?')) {
-            try {
-                const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-                if (!response.ok) throw new Error('Failed to delete post');
-                fetchPosts();
-            } catch (error) {
-                console.error('Error:', error);
-            }
+    if (confirm('Are you sure you want to delete this post?')) {
+        try {
+            const response = await fetch(`${API_URL}/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) throw new Error('Failed to delete post');
+            fetchPosts();
+        } 
+        catch (error) {
+            console.error('Error:', error);
         }
     }
-
-    // Initial fetch of posts
-    fetchPosts();
+}
+// Initial fetch of posts
+fetchPosts();

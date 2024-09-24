@@ -17,6 +17,14 @@ h1 {
     justify-content: center;
 }
 
+#posts-list {
+    width: 32rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+}
+
 #post-form {
     display: flex;
     width: 500px;
