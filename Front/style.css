@@ -6,10 +6,14 @@ body {
     background-color: #f4f4f4;
 }
 
-h1 {
+.title {
+    width: 30rem;
+    margin: auto;
     display: flex;
     justify-content: center;
+    border: 1px solid #000;
 }
+
 .container {
     width: 50rem;
     margin: auto;
@@ -56,4 +60,21 @@ h1 {
 
 #post-form button:hover {
     background-color: #226fd3;
+}
+
+/* Working on responsivness */
+@media screen and (max-width: 835px) {
+    .title {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+    }
 }

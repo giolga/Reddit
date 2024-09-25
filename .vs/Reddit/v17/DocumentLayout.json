@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Reddit\\Controllers\\PostController.cs",
               "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Controllers\\PostController.cs",
               "RelativeToolTip": "Reddit\\Controllers\\PostController.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAqwG4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAqwG4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-24T11:10:49.531Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Reddit\\Program.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T10:48:00.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T10:48:00.201Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "Reddit\\Controllers\\CommentController.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAAAG8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-23T10:51:59.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-23T10:51:59.912Z"
             }
           ]
         },
