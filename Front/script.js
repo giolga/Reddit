@@ -40,6 +40,10 @@ const postsList = document.getElementById('posts-list');
                             border: 1px solid #ccc;
                             border-radius: 5px;
                             background-color: #f9f9f9;
+                            transition: font-size 0.6s ease;
+                        }
+                        .post:hover {
+                            font-size: 1.1rem;
                         }
                         .post h3 {
                             margin-bottom: 8px;
