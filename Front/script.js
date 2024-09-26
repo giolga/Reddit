@@ -32,6 +32,7 @@ const postsList = document.getElementById('posts-list');
                     <style>
                         .post {
                             display: block;
+                            position: relative;
                             width: 30rem;
                             padding: 10px;
                             margin-left: 5px;
@@ -77,6 +78,18 @@ const postsList = document.getElementById('posts-list');
                         .delete:hover {
                             background-color: #e33124;
                             font-weight: 700;
+                        }
+
+                        @media screen and (max-width: 835px) {
+                            .post {
+                                display: block;
+                                width: 90%;
+                                margin: auto;
+                            }
+                            
+                            .post p {
+                               text-wrap: wrap;
+                            }
                         }
                     </style>
                 `;

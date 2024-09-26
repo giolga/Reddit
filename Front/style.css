@@ -11,7 +11,6 @@ body {
     margin: auto;
     display: flex;
     justify-content: center;
-    border: 1px solid #000;
 }
 
 .container {
@@ -76,5 +75,12 @@ body {
         justify-content: center;
         width: 100%;
         margin: auto;
+    }
+
+    #posts-list {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
     }
 }
