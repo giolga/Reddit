@@ -12,7 +12,10 @@ namespace Reddit.Model
         public string CommunityName { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        [JsonIgnore]
-        public List<Comment> Comments { get; set; } = new List<Comment>();
+        //[JsonIgnore]
+        public virtual List<Comment> Comments { get; set; } = new List<Comment>();
+        public int AuthorId { get; set; }
+        public virtual User Author { get; set; }
+
     }
 }

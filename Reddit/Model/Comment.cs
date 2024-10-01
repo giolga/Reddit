@@ -11,7 +11,10 @@ namespace Reddit.Model
         public int Upvote { get; set; }
         public int Downvote { get; set; }
         public int PostId { get; set; }
-        [JsonIgnore]
-        public Post Post { get; set; }
+        //[JsonIgnore]
+        public virtual Post Post { get; set; }
+        public int AuthorId { get; set; }
+        //[JsonIgnore]
+        public virtual User Author { get; set; }
     }
 }
