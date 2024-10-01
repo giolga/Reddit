@@ -48,7 +48,7 @@ namespace Reddit.Controllers
             {
                 Title = postDto.Title,
                 Content = postDto.Content,
-                AuthorName = postDto.AuthorName,
+                AuthorId = postDto.AuthorId,
                 CommunityName = postDto.CommunityName
             };
 

@@ -4,7 +4,7 @@
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public string AuthorName { get; set; }
+        public int AuthorId { get; set; }
         public string CommunityName { get; set; }
     }
 }

@@ -48,10 +48,7 @@ namespace Reddit.Controllers
 
             var comment = new Comment()
             {
-                AuthorName = commentDto.AuthorName,
                 Content = commentDto.Content,
-                Upvote = commentDto.Upvote,
-                Downvote = commentDto.Downvote,
                 PostId = commentDto.PostId
             };
 
@@ -81,7 +78,6 @@ namespace Reddit.Controllers
             }
 
             // Map the updated fields
-            comment.AuthorName = commentDto.AuthorName;
             comment.Content = commentDto.Content;
             comment.Upvote = commentDto.Upvote;
             comment.Downvote = commentDto.Downvote;
