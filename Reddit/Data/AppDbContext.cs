@@ -10,6 +10,7 @@ namespace Reddit.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Community> Communities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,6 +52,12 @@ namespace Reddit.Data
                 .WithOne(u => u.Author)
                 .HasForeignKey(u => u.AuthorId);
             //.OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Community>()
+                .HasOne(c => c.Owner)
+                .WithMany(u => u.OwnedCommunities)  // Assuming the owner does not have a collection of owned communities
+                .HasForeignKey(c => c.OwnerId)
+                .OnDelete(DeleteBehavior.Restrict);  // Prevent cascading deletes if needed
 
             base.OnModelCreating(modelBuilder);
         }
