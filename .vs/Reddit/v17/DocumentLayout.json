@@ -1,22 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\GioLGA\\Desktop\\Reddit\\",
+  "WorkspaceRootPath": "C:\\Users\\Mikey\\Desktop\\Reddit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\giolga\\desktop\\reddit\\reddit\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\mikey\\desktop\\reddit\\reddit\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\mikey\\desktop\\reddit\\reddit\\model\\community.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\model\\community.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\mikey\\desktop\\reddit\\reddit\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\giolga\\desktop\\reddit\\reddit\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\mikey\\desktop\\reddit\\reddit\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\giolga\\desktop\\reddit\\reddit\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\mikey\\desktop\\reddit\\reddit\\model\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\model\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\giolga\\desktop\\reddit\\reddit\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|c:\\users\\mikey\\desktop\\reddit\\reddit\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A8CB9A6-B423-41DB-8462-2843E836BF43}|Reddit\\Reddit.csproj|solutionrelative:reddit\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,53 +34,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Model\\Post.cs",
+              "RelativeDocumentMoniker": "Reddit\\Model\\Post.cs",
+              "ToolTip": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Model\\Post.cs",
+              "RelativeToolTip": "Reddit\\Model\\Post.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T07:26:59.701Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Community.cs",
+              "DocumentMoniker": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Model\\Community.cs",
+              "RelativeDocumentMoniker": "Reddit\\Model\\Community.cs",
+              "ToolTip": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Model\\Community.cs",
+              "RelativeToolTip": "Reddit\\Model\\Community.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T07:10:18.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Model\\User.cs",
+              "DocumentMoniker": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Model\\User.cs",
               "RelativeDocumentMoniker": "Reddit\\Model\\User.cs",
-              "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Model\\User.cs",
               "RelativeToolTip": "Reddit\\Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-01T16:53:31.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "PostDto.cs",
-              "DocumentMoniker": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\DTOs\\PostDto.cs",
+              "DocumentMoniker": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\DTOs\\PostDto.cs",
               "RelativeDocumentMoniker": "Reddit\\DTOs\\PostDto.cs",
-              "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\DTOs\\PostDto.cs",
+              "ToolTip": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\DTOs\\PostDto.cs",
               "RelativeToolTip": "Reddit\\DTOs\\PostDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:53:25.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T16:53:25.033Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PostController.cs",
-              "DocumentMoniker": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Controllers\\PostController.cs",
+              "DocumentMoniker": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Controllers\\PostController.cs",
               "RelativeDocumentMoniker": "Reddit\\Controllers\\PostController.cs",
-              "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Controllers\\PostController.cs",
+              "ToolTip": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Controllers\\PostController.cs",
               "RelativeToolTip": "Reddit\\Controllers\\PostController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -81,26 +102,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Data\\AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Reddit\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Mikey\\Desktop\\Reddit\\Reddit\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Reddit\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-01T15:44:10.337Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 913,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
