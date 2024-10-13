@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Reddit;
 using Reddit.Data;
+using Reddit.Middlewares;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,6 +55,14 @@ app.UseCors(policy => policy
     .AllowAnyMethod());
 
 app.UseAuthorization();
+
+// added 
+//app.Run(async (context) =>
+//{
+//    await context.Response.WriteAsync("Terminal run middleware stopped execution");
+//});
+// added
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
 
