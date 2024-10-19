@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Reddit;
 using Reddit.Data;
 using Reddit.Middlewares;
+using Reddit.Repositories;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +38,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.LogTo(Console.WriteLine, LogLevel.Information);
     options.UseLazyLoadingProxies();
 });
+
+
+//D. inj.
+builder.Services.AddScoped<IPostRepository, PostRepository>();
 
 var app = builder.Build();
 

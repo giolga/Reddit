@@ -4970,24 +4970,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GioLGA\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Mikey\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Reddit.csproj",
+      "projectUniqueName": "C:\\Users\\Mikey\\Desktop\\reddit\\Reddit\\Reddit.csproj",
       "projectName": "Reddit",
-      "projectPath": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\Reddit.csproj",
-      "packagesPath": "C:\\Users\\GioLGA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GioLGA\\Desktop\\Reddit\\Reddit\\obj\\",
+      "projectPath": "C:\\Users\\Mikey\\Desktop\\reddit\\Reddit\\Reddit.csproj",
+      "packagesPath": "C:\\Users\\Mikey\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mikey\\Desktop\\reddit\\Reddit\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\GioLGA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Mikey\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5071,7 +5066,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

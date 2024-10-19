@@ -19,5 +19,9 @@ namespace Reddit.Model
         public int CommunityId { get; set; }
         public virtual Community Community { get; set; }
 
+        //added later
+        public int Upvote { get; set; }
+        public int Downvote { get; set; }
+
     }
 }
