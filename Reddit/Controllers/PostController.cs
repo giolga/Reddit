@@ -22,7 +22,7 @@ namespace Reddit.Controllers
         }
 
         [HttpGet]
-        public async Task<PagedList<Post>> GetPosts(int pageNumber = 1, int pageSize = 1, string? searchTerm = null, string? sortTerm = null, bool isAscending = true)
+        public async Task<PagedList<Post>> GetPosts(int pageNumber = 1, int pageSize = 3, string? searchTerm = null, string? sortTerm = null, bool isAscending = true)
         {
             //var posts = _context.Posts.AsQueryable();
             //if (searchTerm != null)
