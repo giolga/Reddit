@@ -1,11 +1,14 @@
 ﻿using Microsoft.Extensions.Hosting;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Reddit.Model
 {
     public class Comment
     {
+        [Key]
         public int Id { get; set; }
+        [Required]
         public string Content { get; set; }
         public int Upvote { get; set; }
         public int Downvote { get; set; }

@@ -25,6 +25,7 @@ namespace Reddit.Controllers
         public async Task<PagedList<Post>> GetPosts(int pageNumber = 1, int pageSize = 3, string? searchTerm = null, string? sortTerm = null, bool isAscending = true)
         {
             //var posts = _context.Posts.AsQueryable();
+
             //if (searchTerm != null)
             //{
             //    posts = posts.Where(p => p.Title.Contains(searchTerm) || p.Content.Contains(searchTerm));
@@ -35,7 +36,9 @@ namespace Reddit.Controllers
             //{
             //    return BadRequest("Page number and page size must be greater than 0.");
             //}
+
             //var pages = await posts.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
             //return pages;
 
             return await _postRepository.GetPosts(pageNumber, pageSize, searchTerm, sortTerm, isAscending);

@@ -43,6 +43,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //D. inj.
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>(); // Dependency Injection added
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

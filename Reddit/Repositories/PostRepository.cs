@@ -15,6 +15,7 @@ namespace Reddit.Repositories
             this._context = context;
         }
 
+
         public async Task<PagedList<Post>> GetPosts(int pageNumber, int pageSize, string? searchTerm = null, string? sortTerm = null, bool isAscending = true)
         {
             var posts = _context.Posts.AsQueryable();
