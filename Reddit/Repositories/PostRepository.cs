@@ -18,6 +18,16 @@ namespace Reddit.Repositories
 
         public async Task<PagedList<Post>> GetPosts(int pageNumber, int pageSize, string? searchTerm = null, string? sortTerm = null, bool isAscending = true)
         {
+            if (pageNumber <= 0)
+            {
+                throw new ArgumentException("Page number must be greater than zero.", nameof(pageNumber));
+            }
+
+            if (pageSize <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(pageSize), "Page size must be greater than zero.");
+            }
+
             var posts = _context.Posts.AsQueryable();
 
             // Filtration
