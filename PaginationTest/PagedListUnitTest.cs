@@ -62,6 +62,72 @@ namespace PaginationTest
         }
 
         [Fact]
-        public async Task 
+        public async Task Community_test()
+        {
+            var dbName = Guid.NewGuid().ToString();
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+
+            var dbContext = new AppDbContext(options);
+
+            List<Community> communities = new List<Community>
+            {
+                new Community
+                {
+                    Name = "MMA Community",
+                    Description = "Merab THE GOAT",
+                    OwnerId = 1 //Giorgi
+                },
+                new Community
+                {
+                    Name = "Alex Pereira Training Sessions",
+                    Description = "CHAMA",
+                    OwnerId = 4 //Poatan owner
+                },
+                new Community
+                {
+                    Name = "C# Masterclass",
+                    Description = "This is the best C# community to learn this prog language",
+                    OwnerId = 5 // Tony                   
+                },
+                new Community
+                {
+                    Name = "Culinary community",
+                    Description = "Interested in cooking? Let's cook with Volk!",
+                    OwnerId = 7 //the great
+                },
+                new Community
+                {
+                    Name = "Striking masterclass",
+                    Description = "Learn Israel's question mark kicks within 5 minutes!",
+                    OwnerId = 3 //izzy
+                }
+            };
+
+            dbContext.Communities.AddRange(communities);
+            await dbContext.SaveChangesAsync();
+
+            var queryableCommunities = dbContext.Communities.AsQueryable();
+
+            int pageNumber = 1;
+            int pageSize = 3;
+
+            // Act: Call the Pagination method
+            var pagedList = await Pagination(queryableCommunities, pageNumber, pageSize);
+
+            Assert.Equal(pageNumber, pagedList.PageNumber);
+            Assert.Equal(pageSize, pagedList.PageSize);
+            Assert.Equal(communities.Count, pagedList.TotalCount);
+            Assert.Equal(pageSize, pagedList.Items.Count);
+            Assert.True(pagedList.HasNextPage);
+            Assert.False(pagedList.HasPreviousPage);
+            
+            Assert.Equal(5, pagedList.Items[2].OwnerId); //owner id of the owner in the first page should be 5 (el cucuy)
+            var giorgi = dbContext.Users.FirstOrDefault(u => u.Id == pagedList.Items[0].OwnerId);
+
+            Assert.Equal("Giorgi", giorgi.Name);
+
+        }
     }
 }
