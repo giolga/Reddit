@@ -3,6 +3,7 @@ using Reddit.Data;
 using Reddit.DTOs;
 using Reddit.Model;
 using Reddit.Repositories;
+using System.Linq;
 
 namespace PaginationTest
 {
@@ -22,19 +23,7 @@ namespace PaginationTest
                 .Options;
 
             var dbContext = new AppDbContext(options);
-
-            List<User> users = new List<User>
-        {
-            new User { Name = "Giorgi", Email = "kumi@gmail.com" },
-            new User { Name = "Kamaru", Email = "nightmare@gmail.com" },
-            new User { Name = "Israel", Email = "the_last_stylebender@gmail.com" },
-            new User { Name = "Alex", Email = "poatan@gmail.com" },
-            new User { Name = "Tony", Email = "el_cucuy@gmail.com" },
-            new User { Name = "Charles", Email = "do_bronx@gmail.com" },
-            new User { Name = "Alex", Email = "the_great@gmail.com" },
-            new User { Name = "Anderson", Email = "spider@gmail.com" },
-            new User { Name = "Jon", Email = "goat@gmail.com" }
-        };
+            List<User> users = Users();
 
             dbContext.Users.AddRange(users);
             await dbContext.SaveChangesAsync(); // Await the SaveChangesAsync call
@@ -71,7 +60,94 @@ namespace PaginationTest
 
             var dbContext = new AppDbContext(options);
 
-            List<Community> communities = new List<Community>
+            List<Community> communities = Communities();
+
+            dbContext.Communities.AddRange(communities);
+            dbContext.Users.AddRange(Users());
+            await dbContext.SaveChangesAsync();
+
+            var queryableCommunities = dbContext.Communities.AsQueryable();
+
+            int pageNumber = 1;
+            int pageSize = 3;
+
+            // Act: Call the Pagination method
+            var pagedList = await Pagination(queryableCommunities, pageNumber, pageSize);
+
+            Assert.Equal(pageNumber, pagedList.PageNumber);
+            Assert.Equal(pageSize, pagedList.PageSize);
+            Assert.Equal(communities.Count, pagedList.TotalCount);
+            Assert.Equal(pageSize, pagedList.Items.Count);
+            Assert.True(pagedList.HasNextPage);
+            Assert.False(pagedList.HasPreviousPage);
+
+            Assert.Equal(5, pagedList.Items[2].OwnerId); //owner id of the owner in the first page should be 5 (el cucuy)
+
+            var person = await dbContext.Users.FirstAsync(u => u.Id == pagedList.Items[0].OwnerId);
+            Assert.Equal(1, person.Id);
+
+            int pageNumber2 = 5;
+            int pageSize2 = 2;
+
+            var pagedList2 = await Pagination(queryableCommunities, pageNumber2, pageSize2); //Page should have 1 article
+            Assert.Equal(1, pagedList2.Items.Count);
+            Assert.False(pagedList2.HasNextPage);
+            Assert.True(pagedList2.HasPreviousPage);
+            Assert.Equal("Networking Community", pagedList2.Items[0].Name);
+            Assert.NotEqual(communities.Count, pagedList2.Items.Count);
+        }
+
+        [Fact]
+        public async Task Post_test()
+        {
+            var dbName = Guid.NewGuid().ToString();
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+
+            var dbContext = new AppDbContext(options);
+
+            List<Post> posts = Posts();
+            List<User> users = Users();
+            List<Community> communities = Communities();
+
+            dbContext.Users.AddRange(users);
+            dbContext.Communities.AddRange(communities);
+            dbContext.Posts.AddRange(posts);
+            await dbContext.SaveChangesAsync();
+
+            Assert.Equal(12, posts.Count);
+
+            var queryableCommunities = dbContext.Posts.AsQueryable();
+
+            int pageNumber = 1;
+            int pageSize = 6;
+
+            var pagedList = await Pagination(queryableCommunities, pageNumber, pageSize);
+            Assert.Equal(6, pagedList.Items.Count);
+            Assert.True(pagedList.HasNextPage);
+            Assert.False(pagedList.HasPreviousPage);
+            Assert.Equal("Networking Community", (await dbContext.Communities.FirstAsync(c => c.Id == pagedList.Items[5].CommunityId)).Name);
+        }
+
+        private List<User> Users()
+        {
+            return new List<User>
+                {
+                    new User { Name = "Giorgi", Email = "kumi@gmail.com" },
+                    new User { Name = "Kamaru", Email = "nightmare@gmail.com" },
+                    new User { Name = "Israel", Email = "the_last_stylebender@gmail.com" },
+                    new User { Name = "Alex", Email = "poatan@gmail.com" },
+                    new User { Name = "Tony", Email = "el_cucuy@gmail.com" },
+                    new User { Name = "Charles", Email = "do_bronx@gmail.com" },
+                    new User { Name = "Alex", Email = "the_great@gmail.com" },
+                    new User { Name = "Anderson", Email = "spider@gmail.com" },
+                    new User { Name = "Jon", Email = "goat@gmail.com" }
+                };
+        } // 9 users
+        private List<Community> Communities()
+        {
+            return new List<Community>
             {
                 new Community
                 {
@@ -102,32 +178,135 @@ namespace PaginationTest
                     Name = "Striking masterclass",
                     Description = "Learn Israel's question mark kicks within 5 minutes!",
                     OwnerId = 3 //izzy
+                },
+                new Community
+                {
+                    Name = "GOAT community",
+                    Description = "Jon Jones teaches us how to become the best!",
+                    OwnerId = 9
+                },
+                new Community
+                {
+                    Name = "Head movement community",
+                    Description = "Learn how to become Neo with Spider",
+                    OwnerId = 8
+                },
+                new Community
+                {
+                    Name = "Muay Thai",
+                    Description = "OOOooooooOoooooooowwweeeeeeeeeeeee",
+                    OwnerId = 1
+                },
+                new Community
+                {
+                    Name = "Networking Community",
+                    Description = "Cisco",
+                    OwnerId = 1
                 }
             };
+        }
 
-            dbContext.Communities.AddRange(communities);
-            await dbContext.SaveChangesAsync();
+        private List<Post> Posts()
+        {
+            return new List<Post>
+            {
+                new Post
+                {
+                    Title = "Poatan has a vicious left hook!",
+                    Content = "MMA/Kickboxing",
+                    AuthorId = 1, // Giorgi
+                    CommunityId = 2 // Poatan's community
+                },
+                new Post
+                {
+                    Title = "Let's enjoy eating delicious burgers with Volk!",
+                    Content = "Cook, chef, Culinary",
+                    AuthorId = 9, // Jon Jones
+                    CommunityId = 4 // Volk's community
+                },
+                new Post
+                {
+                    Title = "Today was a good day. #question_mark_kicks #izzy #goat",
+                    Content = "Adesanya masterclass",
+                    AuthorId = 5, // Tony
+                    CommunityId = 5 // Israel's community
+                },
+                new Post
+                {
+                    Title = "I've just learned head movement from the legend himself",
+                    Content = "Training with the Spider",
+                    AuthorId = 6, // Charles
+                    CommunityId = 7 // Anderson's community
+                },
+                new Post
+                {
+                    Title = "Merab deserves more respect! #MMA",
+                    Content = "The bantamweight king deserves a shot!",
+                    AuthorId = 3, // Israel
+                    CommunityId = 1 // MMA community
+                },
+                new Post
+                {
+                    Title = "Networking is the future! Let's dive into Cisco essentials.",
+                    Content = "Exploring CCNA certifications and beyond.",
+                    AuthorId = 1, // Giorgi
+                    CommunityId = 9 // Networking community
+                },
+                new Post
+                {
+                    Title = "Muay Thai techniques to elevate your game!",
+                    Content = "Focus on clinching and sweeping techniques.",
+                    AuthorId = 4, // Poatan
+                    CommunityId = 8 // Muay Thai community
+                },
+                new Post
+                {
+                    Title = "Mastering C# LINQ Queries",
+                    Content = "Learn to manipulate data like a pro with LINQ.",
+                    AuthorId = 5, // Tony
+                    CommunityId = 3 // C# masterclass
+                },
+                new Post
+                {
+                    Title = "Striking Techniques for MMA",
+                    Content = "The fundamentals of jabs and leg kicks.",
+                    AuthorId = 7, // Alex (the great)
+                    CommunityId = 5 // Striking masterclass
+                },
+                new Post
+                {
+                    Title = "How to defend against the left hook",
+                    Content = "Analyzing the most dangerous punches in combat sports.",
+                    AuthorId = 2, // Kamaru
+                    CommunityId = 2 // Poatan's community
+                },
+                new Post
+                {
+                    Title = "Spider's Tips on Timing and Reflexes",
+                    Content = "Improve your reaction time with Anderson Silva's methods.",
+                    AuthorId = 8, // Anderson
+                    CommunityId = 7 // Head movement community
+                },
+                new Post
+                {
+                    Title = "Best practices for C# async programming",
+                    Content = "Simplify your code and improve performance with async/await.",
+                    AuthorId = 1, // Giorgi
+                    CommunityId = 3 // C# masterclass
+                }
+            };
+        }
 
-            var queryableCommunities = dbContext.Communities.AsQueryable();
 
-            int pageNumber = 1;
-            int pageSize = 3;
+        private List<Comment> Comments()
+        {
+            return new List<Comment>
+            {
+                new Comment
+                {
 
-            // Act: Call the Pagination method
-            var pagedList = await Pagination(queryableCommunities, pageNumber, pageSize);
-
-            Assert.Equal(pageNumber, pagedList.PageNumber);
-            Assert.Equal(pageSize, pagedList.PageSize);
-            Assert.Equal(communities.Count, pagedList.TotalCount);
-            Assert.Equal(pageSize, pagedList.Items.Count);
-            Assert.True(pagedList.HasNextPage);
-            Assert.False(pagedList.HasPreviousPage);
-            
-            Assert.Equal(5, pagedList.Items[2].OwnerId); //owner id of the owner in the first page should be 5 (el cucuy)
-            var giorgi = dbContext.Users.FirstOrDefault(u => u.Id == pagedList.Items[0].OwnerId);
-
-            Assert.Equal("Giorgi", giorgi.Name);
-
+                },
+            };
         }
     }
 }

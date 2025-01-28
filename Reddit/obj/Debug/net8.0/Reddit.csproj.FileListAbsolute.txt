@@ -329,3 +329,4 @@ C:\Users\GioLGA\Desktop\Reddit\Reddit\obj\Debug\net8.0\refint\Reddit.dll
 C:\Users\GioLGA\Desktop\Reddit\Reddit\obj\Debug\net8.0\Reddit.pdb
 C:\Users\GioLGA\Desktop\Reddit\Reddit\obj\Debug\net8.0\Reddit.genruntimeconfig.cache
 C:\Users\GioLGA\Desktop\Reddit\Reddit\obj\Debug\net8.0\ref\Reddit.dll
+C:\Users\GioLGA\Desktop\Reddit\Reddit\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
