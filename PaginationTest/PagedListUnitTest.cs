@@ -107,9 +107,9 @@ namespace PaginationTest
 
             var dbContext = new AppDbContext(options);
 
-            List<Post> posts = Posts();
             List<User> users = Users();
             List<Community> communities = Communities();
+            List<Post> posts = Posts();
 
             dbContext.Users.AddRange(users);
             dbContext.Communities.AddRange(communities);
@@ -130,6 +130,42 @@ namespace PaginationTest
             Assert.Equal("Networking Community", (await dbContext.Communities.FirstAsync(c => c.Id == pagedList.Items[5].CommunityId)).Name);
         }
 
+        [Fact]
+        public async Task Comment_test()
+        {
+            var dbName = Guid.NewGuid().ToString();
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+
+            var dbContext = new AppDbContext(options);
+
+            List<User> users = Users();
+            List<Community> communities = Communities();
+            List<Post> posts = Posts();
+            List<Comment> comments = Comments();
+
+            dbContext.Users.AddRange(users);
+            dbContext.Communities.AddRange(communities);
+            dbContext.Posts.AddRange(posts);
+            dbContext.Comments.AddRange(comments);
+            await dbContext.SaveChangesAsync();
+
+            Assert.Equal(12, dbContext.Comments.ToList().Count);
+
+            var queryableComments = dbContext.Comments.AsQueryable();
+
+            int pageNumber = 3;
+            int pageSize = 2;
+
+            var pagedList = await Pagination(queryableComments, pageNumber, pageSize);
+            Assert.Equal(2, pagedList.Items[0].AuthorId);
+            Assert.Equal("Merab deserves more respect! #MMA", dbContext.Posts.FirstOrDefault(p => p.Id == pagedList.Items[0].PostId)!.Title);
+            Assert.True(pagedList.HasPreviousPage);
+            Assert.True(pagedList.HasPreviousPage);
+            Assert.Equal("Kamaru", dbContext.Users.FirstOrDefault(u => u.Id == pagedList.Items[0].AuthorId)!.Name);
+        }
+
         private List<User> Users()
         {
             return new List<User>
@@ -145,6 +181,7 @@ namespace PaginationTest
                     new User { Name = "Jon", Email = "goat@gmail.com" }
                 };
         } // 9 users
+
         private List<Community> Communities()
         {
             return new List<Community>
@@ -302,10 +339,78 @@ namespace PaginationTest
         {
             return new List<Comment>
             {
-                new Comment
-                {
-
-                },
+                    new Comment
+                    {
+                        Content = "Poatan is a monster in the octagon! That left hook is terrifying!",
+                        AuthorId = 3, // Israel
+                        PostId = 1 // Post about Poatan's left hook
+                    },
+                    new Comment
+                    {
+                        Content = "Burgers with Volk sounds amazing! What's your favorite recipe?",
+                        AuthorId = 5, // Tony
+                        PostId = 2 // Post about burgers with Volk
+                    },
+                    new Comment
+                    {
+                        Content = "Question mark kicks are no joke, great session today!",
+                        AuthorId = 7, // Alex (the great)
+                        PostId = 3 // Post about Israel's kicks
+                    },
+                    new Comment
+                    {
+                        Content = "Spider's head movement is unreal, he makes it look so easy!",
+                        AuthorId = 4, // Poatan
+                        PostId = 4 // Post about head movement with Spider
+                    },
+                    new Comment
+                    {
+                        Content = "Merab has earned his place at the top. Bantamweight division needs to take notice!",
+                        AuthorId = 2, // Kamaru
+                        PostId = 5 // Post about Merab
+                    },
+                    new Comment
+                    {
+                        Content = "Networking is indeed the future, let's master it together!",
+                        AuthorId = 9, // Jon Jones
+                        PostId = 6 // Post about networking and Cisco
+                    },
+                    new Comment
+                    {
+                        Content = "Clinching and sweeping are my favorite techniques in Muay Thai!",
+                        AuthorId = 6, // Charles
+                        PostId = 7 // Post about Muay Thai techniques
+                    },
+                    new Comment
+                    {
+                        Content = "This LINQ guide is amazing! Helped me optimize my code.",
+                        AuthorId = 8, // Anderson
+                        PostId = 8 // Post about C# LINQ
+                    },
+                    new Comment
+                    {
+                        Content = "Jabs and leg kicks are underrated tools in MMA. Great post!",
+                        AuthorId = 4, // Poatan
+                        PostId = 9 // Post about striking techniques
+                    },
+                    new Comment
+                    {
+                        Content = "Defending the left hook is tough, but a high guard helps a lot!",
+                        AuthorId = 5, // Tony
+                        PostId = 10 // Post about defending against the left hook
+                    },
+                    new Comment
+                    {
+                        Content = "Timing is everything in fighting. Spider's tips are gold!",
+                        AuthorId = 2, // Kamaru
+                        PostId = 11 // Post about timing and reflexes
+                    },
+                    new Comment
+                    {
+                        Content = "Async programming has made my life so much easier. Thanks for sharing!",
+                        AuthorId = 7, // Alex (the great)
+                        PostId = 12 // Post about C# async programming
+                    }
             };
         }
     }
